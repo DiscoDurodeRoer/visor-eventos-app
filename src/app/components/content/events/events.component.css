@@ -1,0 +1,17 @@
+div.fc div.fc-view-container div.fc-view div.fc-scroller{
+    height: 100% !important;
+}
+
+.fc-list-item.blog span.fc-event-dot{
+    background-color: #7c7c7c;
+}
+
+
+.fc-list-item.video span.fc-event-dot{
+    background-color: #c4302b;
+}
+
+
+.fc-list-item.streaming span.fc-event-dot{
+    background-color: #6441a5;
+}

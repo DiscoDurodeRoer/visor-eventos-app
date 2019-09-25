@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+    height: 100%;
+}
+
+html body .ui-calendar {
+    display: block;
+}
+
+body .fc .fc-event.blog{
+    background-color: #7c7c7c;
+    border: 1px solid #7c7c7c;
+}
+
+body .fc .fc-event.video{
+    background-color: #c4302b;
+    border: 1px solid #c4302b;
+}
+
+body .fc .fc-event.streaming{
+    background-color: #6441a5;
+    border: 1px solid #6441a5;
+}
+
+body .tooltip-inner{
+    background-color: transparent;
+    color: #000;
+
+}
+
+.popper, .tooltip {
+    position: absolute;
+    z-index: 9999;
+    background: #FFF;
+    opacity: 1 !important;
+    color: black;
+    top: -15px !important;
+    border-radius: 3px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+    padding: 10px;
+    text-align: center;
+}

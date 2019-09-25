@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { EventService } from './../../../services/event.service';
+import { Component, OnInit, Input, ViewChild, ViewEncapsulation } from '@angular/core';
 
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -6,44 +7,32 @@ import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 
 import esLocale from '@fullcalendar/core/locales/es';
+import { Event } from '../../../models/event.model';
+import { FullCalendar } from 'primeng/components/fullcalendar/fullcalendar';
+import Tooltip from 'tooltip.js'
+import * as $ from 'jquery';
+
 @Component({
   selector: 'ddr-events',
   templateUrl: './events.component.html',
-  styleUrls: ['./events.component.css']
+  styleUrls: ['./events.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class EventsComponent implements OnInit {
 
-  public events: any;;
+  public events: Event[];
 
   public optionsMonth: any;
   public optionsList: any;
 
-  constructor() {
-    this.events = [
-      {
-        "title": "All Day Event",
-        "start": "2019-09-17"
-      },
-      {
-        "title": "Long Event",
-        "start": "2019-09-01",
-        "end": "2019-09-10"
-      },
-      {
-        "title": "Repeating Event",
-        "start": "2019-09-09T16:00:00"
-      },
-      {
-        "title": "Repeating Event",
-        "start": "2019-09-17T16:00:00"
-      },
-      {
-        "title": "Conference",
-        "start": "2016-01-11",
-        "end": "2016-01-13"
-      }
-    ];
+  constructor(
+    private eventService: EventService
+  ) {
 
+
+    this.eventService.getEvents().subscribe(events => {
+      this.events = events;
+    });
 
     this.optionsMonth = {
       plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
@@ -54,6 +43,15 @@ export class EventsComponent implements OnInit {
         center: 'title',
         right: ''
       },
+      eventRender: (e) =>  {
+        var tooltip = new Tooltip(e.el, {
+          title: e.event.extendedProps.description,
+          placement: 'top',
+          trigger: 'hover',
+          container: 'body'
+        });
+
+      },
       editable: false
     };
 
@@ -63,7 +61,7 @@ export class EventsComponent implements OnInit {
       defaultView: 'listWeek',
       locale: esLocale,
       header: {
-        left: 'prev,next',
+        left: '',
         center: 'title',
         right: ''
       },
@@ -73,6 +71,7 @@ export class EventsComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 }
