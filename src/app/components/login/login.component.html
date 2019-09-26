@@ -1,0 +1,46 @@
+<div class="row" id="login">
+  <div class="col-12">
+
+    <!-- Muestra el error -->
+    <div class="row" *ngIf="showLoginError">
+      <div class="col-12">
+        <div class="alert alert-danger" role="alert">
+          <strong>Error al loguearse</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <form [formGroup]="formLogin" (ngSubmit)="checkLogin()">
+
+          <!-- Email -->
+          <div class="row form-group">
+            <div class="col-12">
+              <label for="email">Email</label>
+              <input type="email" formControlName="email" class="form-control" id="email">
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="row form-group">
+            <div class="col-12">
+              <label for="pass">Password</label>
+              <input type="password" formControlName="pass" class="form-control" id="pass">
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-12">
+              <button class="btn btn-block btn-primary" type="submit" [disabled]="formLogin.invalid">
+                Login
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -75,6 +75,14 @@ export class Event implements IEvent {
         _.set(this, 'data.className', value);
     }
 
+    get url(): string {
+        return _.get(this, 'data.url');
+    }
+
+    set url(value: string) {
+        _.set(this, 'data.url', value);
+    }
+
     getData() {
         return _.get(this, 'data');
     }

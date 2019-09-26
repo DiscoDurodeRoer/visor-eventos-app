@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Module
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,8 @@ import { EventsComponent } from './components/content/events/events.component';
 import { ContentComponent } from './components/content/content.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AddEventComponent } from './components/content/add-event/add-event.component';
+import { LoginComponent } from './components/login/login.component';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyB7mmNnMZruESyjMe-HtCb5Sq0Bwz5bJR8",
@@ -38,7 +41,8 @@ const firebaseConfig = {
     EventsComponent,
     ContentComponent,
     HeaderComponent,
-    AddEventComponent
+    AddEventComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +55,7 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

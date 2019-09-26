@@ -1,3 +1,9 @@
 #header{
+    margin: 10px;
+    background: #FFF;
     padding: 10px;
+}
+
+#header img.img-logo{
+    max-height: 60px;
 }

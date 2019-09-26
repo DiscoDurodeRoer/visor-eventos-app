@@ -24,10 +24,20 @@ export class EventsComponent implements OnInit {
 
   public optionsMonth: any;
   public optionsList: any;
+  public fechaEventosList: Date;
 
   constructor(
     private eventService: EventService
   ) {
+
+    this.fechaEventosList = new Date();
+
+    console.log(this.fechaEventosList.getDay());
+
+    if(this.fechaEventosList.getDay() > 5){
+      this.fechaEventosList.setTime(this.fechaEventosList.getTime() + 604800000);
+    }
+
 
 
     this.eventService.getEvents().subscribe(events => {
@@ -41,7 +51,7 @@ export class EventsComponent implements OnInit {
       header: {
         left: 'prev,next',
         center: 'title',
-        right: ''
+        right: 'dayGridMonth, dayGridWeek, dayGridDay'
       },
       eventRender: (e) =>  {
         var tooltip = new Tooltip(e.el, {
@@ -57,7 +67,7 @@ export class EventsComponent implements OnInit {
 
     this.optionsList = {
       plugins: [dayGridPlugin, listPlugin, interactionPlugin],
-      defaultDate: new Date(),
+      defaultDate: this.fechaEventosList,
       defaultView: 'listWeek',
       locale: esLocale,
       header: {

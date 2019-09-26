@@ -1,80 +1,81 @@
 <div class="row">
   <div class="col-12">
 
-    <h1>Añadir evento</h1>
-
-    <form (ngSubmit)="addEvent()">
-
-      <div class="row form-group">
-
-        <div class="col-md-4 col-12">
-          <label for="title">Título</label>
-          <input type="text" class="form-control" name="title" id="title" [(ngModel)]="event.title" />
-        </div>
-
-        <div class="col-md-4 col-12">
-          <label for="start">Inicio</label>
-          <p-calendar 
-            name="start"
-            id="start" 
-            inputStyleClass="form-control" 
-            [(ngModel)]="event.startDate"
-            showTime="true"
-            [minDate]="today">
-          </p-calendar>
-
-          <p-checkbox 
-            name="show-end" 
-            binary="true"
-            label="¿Tiene fin el evento?"
-            [(ngModel)]="showEnd">
-          </p-checkbox>
-
-        </div>
-
-
-        <div class="col-md-4 col-12" *ngIf="showEnd">
-          <label for="end">Fin</label>
-          <p-calendar 
-            name="end" 
-            id="end" 
-            inputStyleClass="form-control" 
-            [(ngModel)]="event.endDate"
-            showTime="true"
-            [minDate]="event.startDate">
-          </p-calendar>
-        </div>
-
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1>Añadir evento</h1>
       </div>
+    </div>
 
-      <div class="row form-group">
+    <div class="row">
+      <div class="col-12">
+        <form (ngSubmit)="addEvent()">
 
-        <div class="col-md-4 col-12">
-          <label for="type">Tipo evento</label>
-          <select name="type" class="form-control" [(ngModel)]="event.className" id="type">
-            <option value="blog">Post</option>
-            <option value="video">Video</option>
-            <option value="streaming">Directo</option>
-          </select>  
-        </div>
+          <div class="row form-group">
 
-        <div class="col-md-8 col-12">
-          <label for="description">Descripción</label>
-          <textarea name="description" class="form-control" id="description" [(ngModel)]="event.description" cols="10" rows="3"></textarea>
-        </div>
+            <div class="col-md-4 col-12">
+              <label for="title">Título</label>
+              <input type="text" class="form-control" name="title" id="title" [(ngModel)]="event.title" />
+            </div>
 
+            <div class="col-md-4 col-12">
+              <label for="start">Inicio</label>
+              <p-calendar name="start" id="start" inputStyleClass="form-control" [(ngModel)]="event.startDate"
+                showTime="true" [minDate]="today">
+              </p-calendar>
+
+              <p-checkbox name="show-end" binary="true" label="¿Tiene fin el evento?" [(ngModel)]="showEnd">
+              </p-checkbox>
+
+            </div>
+
+
+            <div class="col-md-4 col-12" *ngIf="showEnd">
+              <label for="end">Fin</label>
+              <p-calendar name="end" id="end" inputStyleClass="form-control" [(ngModel)]="event.endDate" showTime="true"
+                [minDate]="event.startDate">
+              </p-calendar>
+            </div>
+
+          </div>
+
+          <div class="row form-group">
+
+            <div class="col-md-4 col-12">
+              <label for="type">Tipo evento</label>
+              <select name="type" class="form-control" [(ngModel)]="event.className" id="type">
+                <option value="blog">Post</option>
+                <option value="video">Video</option>
+                <option value="streaming">Directo</option>
+              </select>
+            </div>
+
+            <div class="col-md-4 col-12">
+              <label for="url">URL</label>
+              <textarea name="url" class="form-control" id="url"
+                [(ngModel)]="event.url"></textarea>
+            </div>
+
+            <div class="col-md-4 col-12">
+              <label for="description">Descripción</label>
+              <textarea name="description" class="form-control" id="description"
+                [(ngModel)]="event.description"></textarea>
+            </div>
+
+          </div>
+
+
+          <div class="row form-group">
+            <div class="col-12">
+
+              <button type="button" type="submit" class="btn btn-primary btn-block">Añadir evento</button>
+
+            </div>
+          </div>
+
+        </form>
       </div>
-
-
-      <div class="row form-group">
-        <div class="col-12">
-
-          <button type="button" type="submit" class="btn btn-primary btn-block">Añadir evento</button>
-
-        </div>
-      </div>
-
-    </form>
+    </div>
 
   </div>
 </div>

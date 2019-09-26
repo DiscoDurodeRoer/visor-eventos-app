@@ -1,15 +1,29 @@
-<div class="row no-gutters" id="header">
-  <div class="col-1 border p-2">
-    <img class="img-fluid" src="/assets/img/logo-ddr.png" alt="">
+<div class="row no-gutters border" id="header">
+  <div class="col-md-1 col-2 p-2">
+    <img class="img-logo" src="/assets/img/logo-ddr.png" alt="">
   </div>
-  <div class="col-11 border">
+  <div class="col-md-10 col-10">
 
-    <nav class="nav text-left">
-      <a class="nav-link active" [routerLink]="['/events']" routerLinkActive="router-link-active"  href="#">Eventos</a>
-      <a class="nav-link" href="#" [routerLink]="['/add-event']" routerLinkActive="router-link-active" >Añadir eventos</a>
-      <a class="nav-link disabled" href="#">Encuestas</a>
+    <nav class="navbar navbar-expand-sm navbar-light">
+      <button class="navbar-toggler d-lg-none text-right" type="button" data-toggle="collapse" data-target="#navbar"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link " [routerLink]="['/events']" routerLinkActive="router-link-active" href="#">Eventos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" [routerLink]="['/add-event']" routerLinkActive="router-link-active">Añadir
+              eventos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" *ngIf="auth.isAuthenticated()" (click)="logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
     </nav>
-
   </div>
 
 </div>

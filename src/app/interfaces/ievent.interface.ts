@@ -7,4 +7,5 @@ export interface IEvent {
     endDate?: Date;
     description: string;
     className: string;
+    url: string;
 }
