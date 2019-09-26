@@ -13,6 +13,7 @@ export class AddEventComponent implements OnInit {
   public event: Event;
   public showEnd: boolean;
   public today: Date;
+  public localeES: any;
 
   constructor(public eventService: EventService) {
     this.event = new Event({});
@@ -23,6 +24,17 @@ export class AddEventComponent implements OnInit {
     this.event.className = "blog";
 
     this.showEnd = false;
+
+    this.localeES = {
+      firstDayOfWeek: 1,
+      dayNames: [ "domingo","lunes","martes","miércoles","jueves","viernes","sábado" ],
+      dayNamesShort: [ "dom","lun","mar","mié","jue","vie","sáb" ],
+      dayNamesMin: [ "D","L","M","X","J","V","S" ],
+      monthNames: [ "enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre" ],
+      monthNamesShort: [ "ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic" ],
+      today: 'Hoy',
+      clear: 'Borrar'
+    }
   }
 
   ngOnInit() {

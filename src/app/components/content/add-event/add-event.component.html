@@ -21,7 +21,7 @@
             <div class="col-md-4 col-12">
               <label for="start">Inicio</label>
               <p-calendar name="start" id="start" inputStyleClass="form-control" [(ngModel)]="event.startDate"
-                showTime="true" [minDate]="today">
+                showTime="true" [minDate]="today" [locale]="localeES">
               </p-calendar>
 
               <p-checkbox name="show-end" binary="true" label="¿Tiene fin el evento?" [(ngModel)]="showEnd">
@@ -52,8 +52,8 @@
 
             <div class="col-md-4 col-12">
               <label for="url">URL</label>
-              <textarea name="url" class="form-control" id="url"
-                [(ngModel)]="event.url"></textarea>
+              <input name="url" class="form-control" id="url"
+                [(ngModel)]="event.url"/>
             </div>
 
             <div class="col-md-4 col-12">
