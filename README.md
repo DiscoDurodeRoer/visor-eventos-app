@@ -10,6 +10,8 @@ Mostraremos el día y hora a la que se realizaran los eventos que pueden ser de 
 
 Se ha realizado con angular 8, bootstrap, ngprime y fullcalendar.
 
+![alt text](https://pbs.twimg.com/media/EFei5MNWoAY8Aoe?format=png&name=medium)
+
 Aqui se puede ver desplegado:
 
 https://eventos.discoduroderoer.es/#/events
