@@ -55,10 +55,11 @@ export class EventsComponent implements OnInit {
       },
       eventRender: (e) =>  {
         var tooltip = new Tooltip(e.el, {
-          title: e.event.extendedProps.description,
+          title: "<h6>"+e.event.title +"</h6>"+e.event.extendedProps.description,
           placement: 'top',
           trigger: 'hover',
-          container: 'body'
+          container: 'body',
+          html: true
         });
 
       },
