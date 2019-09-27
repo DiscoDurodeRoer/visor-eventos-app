@@ -12,6 +12,8 @@ Se ha realizado con angular 8, bootstrap, ngprime y fullcalendar.
 
 ![alt text](https://pbs.twimg.com/media/EFei5MNWoAY8Aoe?format=png&name=medium)
 
+![alt text](https://pbs.twimg.com/media/EFei5lWXYAEERCN?format=png&name=small)
+
 Aqui se puede ver desplegado:
 
 https://eventos.discoduroderoer.es/#/events
