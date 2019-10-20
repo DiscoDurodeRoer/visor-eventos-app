@@ -22,7 +22,7 @@ export class AuthService {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this._isLoggued = true;
-        this.route.navigate(['/events']);
+        this.route.navigate([this.route.getCurrentNavigation()]);
       }
     })
   }

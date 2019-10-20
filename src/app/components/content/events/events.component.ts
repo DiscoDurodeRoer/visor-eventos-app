@@ -34,9 +34,9 @@ export class EventsComponent implements OnInit {
 
     console.log(this.fechaEventosList.getDay());
 
-    if(this.fechaEventosList.getDay() > 5){
-      this.fechaEventosList.setTime(this.fechaEventosList.getTime() + 604800000);
-    }
+    // if(this.fechaEventosList.getDay() > 5){
+    //   this.fechaEventosList.setTime(this.fechaEventosList.getTime() + 604800000);
+    // }
 
 
 
@@ -68,8 +68,9 @@ export class EventsComponent implements OnInit {
 
     this.optionsList = {
       plugins: [dayGridPlugin, listPlugin, interactionPlugin],
-      defaultDate: this.fechaEventosList,
-      defaultView: 'listWeek',
+      defaultDate: new Date(),
+      duration: { days: 10 },
+      defaultView: 'list',
       locale: esLocale,
       header: {
         left: '',

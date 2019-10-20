@@ -1,17 +1,26 @@
+
 // Angular
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Module
 import { AppRoutingModule } from './app-routing.module';
 import { CalendarModule } from 'primeng/calendar';
 import { CheckboxModule } from 'primeng/checkbox';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+// Services
+import { CourseService } from './services/course.service';
+
+// Pipes
+import { SanitizePipe } from './pipes/sanitize.pipe';
 
 // Components
 import { AppComponent } from './app.component';
@@ -21,6 +30,10 @@ import { ContentComponent } from './components/content/content.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AddEventComponent } from './components/content/add-event/add-event.component';
 import { LoginComponent } from './components/login/login.component';
+import { CouponComponent } from './components/content/courses/coupon/coupon.component';
+import { CoursesComponent } from './components/content/courses/courses.component';
+
+
 
 
 const firebaseConfig = {
@@ -35,6 +48,10 @@ const firebaseConfig = {
 
 
 
+export function dataFactory(provider: CourseService) {
+  return () => provider.getData();
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +59,10 @@ const firebaseConfig = {
     ContentComponent,
     HeaderComponent,
     AddEventComponent,
-    LoginComponent
+    LoginComponent,
+    CouponComponent,
+    CoursesComponent,
+    SanitizePipe
   ],
   imports: [
     BrowserModule,
@@ -55,9 +75,19 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgxPaginationModule
   ],
-  providers: [],
+  providers: [
+    CourseService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: dataFactory,
+      deps: [CourseService],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

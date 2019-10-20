@@ -1,0 +1,35 @@
+[
+    {
+        "id": "proyectos_angular",
+        "name": "Aprende Angular 8 desde 0 con 10 proyectos completos",
+        "description": "<p>¡Bienvenidos a mi curso de <strong>Angular 8</strong>! Angular esta experimentando un crecimiento enorme en el desarrollo web Front-End, haciendo que si estas en este sector tarde o temprano tengas que aprender este framework Javascript de Google.</p> <p>En este curso, quiero que te inicies en este <strong>framework</strong> y lo haremos haciendo desde pequeñas aplicaciones a otras más complejas.</p> <p>Aprenderemos todos los componentes que forman Angular para hacer nuestras aplicaciones web.</p> <p>Estas serán las aplicaciones que haremos en este curso:</p> <ul> <li> <p><strong>Pregunta y respuestas</strong>: primera aplicación para empezar con lo más básico de angular, los componentes, la estructura de este y directivas *ngIf y *ngFor.</p> </li> <li> <p><strong>Lista de tareas</strong>: creamos nuestras propias tareas y podremos visualizar aquellas que estén completas y las que no. En esta app, aprenderemos como se comunican los componentes entre sí, usando Input y Output.</p> </li> <li><p><strong>Agenda de contactos</strong>: añadiremos nuestros contactos a través de un formulario y los visualizaremos en pantalla. Veremos el potencial de los formularios en Angular en esta app.</p> </li> <li> <p><strong>Cocktail app</strong>: usando la API de cocktaildb, realizaremos filtros para buscar nuestros cocktails preferidos. En esta app, veremos como usar los servicios para recoger información de fuera. También veremos como se crean y usan los modelos (clases).</p> </li> <li> <p><strong>Viajes soñados</strong>: Cargaremos una lista de países en una lista que podremos arrastrar y mover a otra lista usando drag and drop. Veremos como usar angular Material y directivas propias de angular.</p> </li> <li> <p><strong>Reservas peluqueria Juani: </strong>Usando un formulario, introduciremos los datos para añadir una reserva. Mediante un logueo, podremos ver las reservas que nos han creado. Las reservas se guardan en FireBase. El formulario será un formulario reactivo. </p> </li> <li> <p><strong>Burguer Queen: </strong>Imitamos los paneles de pedido rápido de las cadenas de comida rápida, repasando todo lo anterior pero aun mayor nivel. Los pedidos serán guardados en FireBase.</p> </li> <li> <p><strong>Dashboard:</strong>&nbsp;Parte trasera de la aplicación de blog dinámico, nos permitirá crear post y categorías. Veremos gráficas, herencia de componentes, guards y directivas propias. Todo se guarda en FireBase</p> </li> <li> <p><strong>Blog dinámico</strong>: Mostramos los posts guardamos a través de la aplicación dashboard, la aplicación es una imitación de mi web original, discoduroderoer.</p> </li> <li> <p><strong>Controla gastos</strong>: Aplicación para controlar nuestros gastos e ingresos para tener una idea global de como gastamos nuestro dinero, pudiendo crear nuevos usuarios y loguearnos en la app. Usaremos gráficas, detalles, animaciones, suscripciones, validadores personalizados, formularios, etc. Todo lo gestionaremos desde FireBase.</p> </li> </ul><p>Como extra, os agrego las aplicaciones que hacemos en Youtube y Twitch.</p> <p>¡Nos vemos en el curso!</p>",
+        "img": "/assets/img/angular.jpg",
+        "coupons": [
+            {
+                "price": "13.99",
+                "url": "https://www.udemy.com/course/aprende-angular-desde-0-con-10-proyectos-completos/?couponCode=DDR_OCT_2019",
+                "dateStart": "2019-10-10T17:11:00",
+                "dateEnd": "2019-11-10T17:11:00"
+            }
+        ]
+    },
+    {
+        "id": "java_ejercicios",
+        "name": "Aprende Java con 100 ejercicios prácticos (Incluye JavaFX)",
+        "img": "/assets/img/java_100_ejercicios.jpg",
+        "coupons": [
+            {
+                "price": "13.99",
+                "url": "https://www.udemy.com/course/aprende-java-con-100-ejercicios-practicos/?couponCode=DDR_OCT_2019",
+                "dateStart": "2019-10-10T17:11:00",
+                "dateEnd": "2019-11-10T17:11:00"
+            },
+            {
+                "price": "9.99",
+                "url": "https://www.udemy.com/course/aprende-java-con-100-ejercicios-practicos/?couponCode=DDR_OCT_2019_9_99",
+                "dateStart": "2019-10-15T18:52:00",
+                "dateEnd": "2019-10-20T02:10:00"
+            }
+        ]
+    }
+]

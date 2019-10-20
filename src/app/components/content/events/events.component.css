@@ -15,3 +15,28 @@ div.fc div.fc-view-container div.fc-view div.fc-scroller{
 .fc-list-item.streaming span.fc-event-dot{
     background-color: #6441a5;
 }
+
+.fc-list-item.udemy span.fc-event-dot{
+    background-color: #ea5252;
+}
+
+ .fc .fc-event.blog{
+    background-color: #7c7c7c;
+    border: 1px solid #7c7c7c;
+}
+
+ .fc .fc-event.video{
+    background-color: #c4302b;
+    border: 1px solid #c4302b;
+}
+
+ .fc .fc-event.streaming{
+    background-color: #6441a5;
+    border: 1px solid #6441a5;
+}
+
+ .fc .fc-event.udemy{
+    background-color: #ea5252;
+    border: 1px solid #ea5252;
+}
+

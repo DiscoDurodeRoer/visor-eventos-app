@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
-  public events: any;
-
   constructor() {
    
   }
