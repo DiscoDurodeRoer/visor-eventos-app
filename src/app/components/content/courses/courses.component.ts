@@ -11,7 +11,7 @@ import { CourseService } from 'src/app/services/course.service';
 export class CoursesComponent implements OnInit {
 
   public courses: Course[];
-  public itemsPerPage: number = 3;
+  public itemsPerPage: number = 9;
   public page: number = 1;
 
   constructor(private courseService: CourseService, private route: Router, private activatedRouted: ActivatedRoute) { }

@@ -12,6 +12,13 @@
       </div>
     </div>
   </div>
+  <div class="m-auto">
+    <pagination-controls *ngIf="courses.length > itemsPerPage"
+      (pageChange)="page = $event" 
+      [previousLabel]="'Anterior'"
+      [nextLabel]="'Siguiente'">
+    </pagination-controls>
+  </div>
 </div>
 
 
