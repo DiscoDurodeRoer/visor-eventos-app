@@ -32,14 +32,6 @@ export class EventsComponent implements OnInit {
 
     this.fechaEventosList = new Date();
 
-    console.log(this.fechaEventosList.getDay());
-
-    // if(this.fechaEventosList.getDay() > 5){
-    //   this.fechaEventosList.setTime(this.fechaEventosList.getTime() + 604800000);
-    // }
-
-
-
     this.eventService.getEvents().subscribe(events => {
       this.events = events;
     });

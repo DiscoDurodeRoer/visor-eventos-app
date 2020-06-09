@@ -1,6 +1,21 @@
 <div class="row">
   <div class="col-md-9 col-12">
-    <p-fullCalendar [events]="events"  [options]="optionsMonth"></p-fullCalendar>
+    <div class="text-center mb-3">
+      <h4>Leyenda</h4>
+      <a href="https://discoduroderoer.es" target="_blank">
+        <span class="badge badge-pill legend-blog text-light mr-2">Blog</span>
+      </a>
+      <a href="https://www.youtube.com/user/DiscoDurodeRoer" target="_blank">
+        <span class="badge badge-pill legend-video text-light mr-2">Youtube</span>
+      </a>
+      <a href="https://www.twitch.tv/discoduroderoer_prog" target="_blank">
+        <span class="badge badge-pill legend-streaming text-light mr-2">Twitch</span>
+      </a>
+      <a href="https://cupones.discoduroderoer.es/#/ultimos-cupones/discoduroderoer" target="_blank">
+        <span class="badge badge-pill legend-udemy text-light mr-2">Cupones</span>
+      </a>
+    </div>
+    <p-fullCalendar [events]="events" [options]="optionsMonth"></p-fullCalendar>
   </div>
   <div class="col-md-3 col-12">
     <p-fullCalendar [events]="events" [options]="optionsList"></p-fullCalendar>

@@ -12,27 +12,6 @@ html body .ui-calendar {
     display: block;
 }
 
-/* body .fc .fc-event.blog{
-    background-color: #7c7c7c;
-    border: 1px solid #7c7c7c;
-}
-
-body .fc .fc-event.video{
-    background-color: #c4302b;
-    border: 1px solid #c4302b;
-}
-
-body .fc .fc-event.streaming{
-    background-color: #6441a5;
-    border: 1px solid #6441a5;
-}
-
-body .fc .fc-event.udemy{
-    background-color: #ea5252;
-    border: 1px solid #ea5252;
-} */
-
-
 
 body .tooltip-inner{
     background-color: transparent;

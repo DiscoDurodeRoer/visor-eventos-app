@@ -10,9 +10,44 @@ import * as moment from 'moment';
 })
 export class EventService {
 
+  public eventToEdit: Event;
+
   constructor(
     private afd: AngularFireDatabase
   ) { }
+
+  editEvent() {
+    return new Promise((resolve, reject) => {
+
+      try {
+        // Formateo la fecha
+        this.eventToEdit.start = moment(this.eventToEdit.startDate).format('YYYY-MM-DDTHH:mm');
+
+        if (this.eventToEdit.endDate) {
+          this.eventToEdit.end = moment(this.eventToEdit.endDate).format('YYYY-MM-DDTHH:mm');
+        }
+
+        this.afd.object("/eventos/" + this.eventToEdit.id).set(this.eventToEdit);
+        resolve(true);
+
+      } catch (error) {
+        reject('Error al editar el cupon')
+      }
+
+
+    });
+  }
+
+  deleteEvent(id: string) {
+    return new Promise((resolve, reject) => {
+      try {
+        this.afd.object("/eventos/" + id).remove()
+        resolve(true);
+      } catch (error) {
+        reject('Error al borrar el evento')
+      }
+    });
+  }
 
   addEvent(evento: Event): Promise<boolean> {
 

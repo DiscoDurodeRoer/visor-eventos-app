@@ -15,9 +15,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { CalendarModule } from 'primeng/calendar';
 import { CheckboxModule } from 'primeng/checkbox';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DdrBlockListModule } from 'ddr-block-list';
+import { DdrConfigurationModule} from 'ddr-configuration';
 
 // Services
-import { CourseService } from './services/course.service';
+import { DdrConfigurationService } from 'ddr-configuration';
 
 // Pipes
 import { SanitizePipe } from './pipes/sanitize.pipe';
@@ -28,28 +30,23 @@ import { FullCalendarModule } from 'primeng/fullcalendar';
 import { EventsComponent } from './components/content/events/events.component';
 import { ContentComponent } from './components/content/content.component';
 import { HeaderComponent } from './components/header/header.component';
-import { AddEventComponent } from './components/content/add-event/add-event.component';
+import { AddEditEventComponent } from './components/content/add-edit-event/add-edit-event.component';
 import { LoginComponent } from './components/login/login.component';
-import { CouponComponent } from './components/content/courses/coupon/coupon.component';
-import { CoursesComponent } from './components/content/courses/courses.component';
-
-
-
+import { ManageEventsComponent } from './components/content/manage-events/manage-events.component';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB7mmNnMZruESyjMe-HtCb5Sq0Bwz5bJR8",
-  authDomain: "eventos-app-afc6a.firebaseapp.com",
-  databaseURL: "https://eventos-app-afc6a.firebaseio.com",
-  projectId: "eventos-app-afc6a",
+  apiKey: "AIzaSyBpg9mbnEJ1ZW4WQCo29l8ctVTRzM1tX7w",
+  authDomain: "events-app-2713a.firebaseapp.com",
+  databaseURL: "https://events-app-2713a.firebaseio.com",
+  projectId: "events-app-2713a",
   storageBucket: "",
-  messagingSenderId: "194673032235",
-  appId: "1:194673032235:web:ceb464a2d5a4272f193e6e"
+  messagingSenderId: "230291896609",
+  appId: "1:230291896609:web:bde960c429ec5def1da660",
+  measurementId: "G-KZ88DN25L2"
 };
 
-
-
-export function dataFactory(provider: CourseService) {
-  return () => provider.getData();
+export function configFactory(provider: DdrConfigurationService) {
+  return () => provider.getDataFromJSON('./assets/locale/locale.json');
 }
 
 @NgModule({
@@ -58,11 +55,10 @@ export function dataFactory(provider: CourseService) {
     EventsComponent,
     ContentComponent,
     HeaderComponent,
-    AddEventComponent,
+    AddEditEventComponent,
     LoginComponent,
-    CouponComponent,
-    CoursesComponent,
-    SanitizePipe
+    SanitizePipe,
+    ManageEventsComponent
   ],
   imports: [
     BrowserModule,
@@ -77,14 +73,15 @@ export function dataFactory(provider: CourseService) {
     AngularFireAuthModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    DdrBlockListModule
   ],
   providers: [
-    CourseService,
+    DdrConfigurationService,
     {
       provide: APP_INITIALIZER,
-      useFactory: dataFactory,
-      deps: [CourseService],
+      useFactory: configFactory,
+      deps: [DdrConfigurationService],
       multi: true
     }
   ],
