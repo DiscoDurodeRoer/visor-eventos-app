@@ -13,16 +13,23 @@ export class ManageEventsComponent implements OnInit {
 
   public blockItems: DdrBlockItem[];
 
+  public showEventsFuture: boolean;
+
   public EDIT_EVENT: string = "EDIT_EVENT"
   public DELETE_EVENT: string = "DELETE_EVENT"
 
   constructor(
     private eventService: EventService,
     private router: Router) {
+    this.showEventsFuture = true;
     this.blockItems = [];
   }
 
   ngOnInit() {
+    this.getEventsFuture();
+  }
+
+  getEventsFuture() {
 
     let actions: DdrAction[] = [
       {
@@ -35,7 +42,50 @@ export class ManageEventsComponent implements OnInit {
       }
     ];
 
-    this.eventService.getEvents().subscribe(events => {
+    this.eventService.getFutureEvents().subscribe(events => {
+
+      // events = events.sort((e1, e2) => new Date(e2.start).getTime() - new Date(e1.start).getTime());
+
+      events.forEach(event => {
+
+        let blockItem = new DdrBlockItem();
+        blockItem.item = event;
+        switch (event.className) {
+          case 'blog':
+            blockItem.borderColor = '#7c7c7c';
+            break;
+          case 'video':
+            blockItem.borderColor = '#c4302b';
+            break;
+          case 'streaming':
+            blockItem.borderColor = '#6441a5';
+            break;
+          case 'udemy':
+            blockItem.borderColor = '#ea5252';
+            break;
+        }
+        blockItem.actions = actions;
+
+        this.blockItems.push(blockItem);
+
+      })
+    });
+  }
+
+  getEventsPast() {
+
+    let actions: DdrAction[] = [
+      {
+        'label': "Editar evento",
+        'value': this.EDIT_EVENT
+      },
+      {
+        'label': "Borrar evento",
+        "value": this.DELETE_EVENT
+      }
+    ];
+
+    this.eventService.getPastEvents().subscribe(events => {
 
       events = events.sort((e1, e2) => new Date(e2.start).getTime() - new Date(e1.start).getTime());
 
@@ -63,7 +113,17 @@ export class ManageEventsComponent implements OnInit {
 
       })
     });
+  }
 
+  getEvents(){
+    this.showEventsFuture = !this.showEventsFuture;
+
+    this.blockItems = [];
+    if(this.showEventsFuture){
+      this.getEventsFuture();
+    }else{
+      this.getEventsPast();
+    }
   }
 
   getAction($event: DdrAction) {

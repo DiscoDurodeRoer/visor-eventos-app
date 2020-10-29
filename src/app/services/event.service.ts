@@ -95,4 +95,27 @@ export class EventService {
     return this.afd.list<Event>('eventos').valueChanges();
   }
 
+  getEventsByMonth(month: any, year: number): Observable<Event[]> {
+    month = month + 1;
+
+    if (month < 10) {
+      month = "0" + month;
+    }
+
+    const lastDay = moment(year + "-" + month + "-01").endOf('month').date();
+    return this.afd.list<Event>('eventos', ref => ref.orderByChild('start').startAt(year + "-" + month + "-01").endAt(year + "-" + month + "-" + lastDay)).valueChanges();
+  }
+
+
+  getFutureEvents(): Observable<Event[]> {
+    const today = moment().format('YYYY-MM-DD');
+    return this.afd.list<Event>('eventos', ref => ref.orderByChild('start').startAt(today)).valueChanges();
+  }
+
+
+  getPastEvents(): Observable<Event[]> {
+    const today = moment().format('YYYY-MM-DD');
+    return this.afd.list<Event>('eventos', ref => ref.orderByChild('start').endAt(today)).valueChanges();
+  }
+
 }
