@@ -112,6 +112,11 @@ export class EventService {
     return this.afd.list<Event>('eventos', ref => ref.orderByChild('start').startAt(today)).valueChanges();
   }
 
+  getFutureEventsMonth(): Observable<Event[]> {
+    const today = moment().startOf('month').format('YYYY-MM-DD');
+    return this.afd.list<Event>('eventos', ref => ref.orderByChild('start').startAt(today)).valueChanges();
+  }
+
 
   getPastEvents(): Observable<Event[]> {
     const today = moment().format('YYYY-MM-DD');

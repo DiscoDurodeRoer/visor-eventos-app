@@ -35,7 +35,7 @@ export class EventsComponent implements OnInit {
 
     this.fechaEventosList = new Date();
 
-    this.eventService.getEventsByMonth(moment().get('month'), moment().get('year')).subscribe(events => {
+    this.eventService.getFutureEventsMonth().subscribe(events => {
       this.events = events;
     });
 
