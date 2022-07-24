@@ -35,14 +35,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ManageEventsComponent } from './components/content/manage-events/manage-events.component';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBpg9mbnEJ1ZW4WQCo29l8ctVTRzM1tX7w",
-  authDomain: "events-app-2713a.firebaseapp.com",
-  databaseURL: "https://events-app-2713a.firebaseio.com",
-  projectId: "events-app-2713a",
-  storageBucket: "",
-  messagingSenderId: "230291896609",
-  appId: "1:230291896609:web:bde960c429ec5def1da660",
-  measurementId: "G-KZ88DN25L2"
+
 };
 
 export function configFactory(provider: DdrConfigurationService) {
